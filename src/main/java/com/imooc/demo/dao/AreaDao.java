@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface AreaDao {//Alt+enter创建测试类
     List<Area> queryArea();
-    Area queryArea(int oid);
+    Area queryAreaById(int oid);
     int insertArea(Area area);
     int updateArea(Area area);
     int deleteArea(int oid);

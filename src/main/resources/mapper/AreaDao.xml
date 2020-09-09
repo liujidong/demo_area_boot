@@ -10,7 +10,7 @@
     </select>
     <select id="queryAreaById" resultType="com.imooc.demo.entity.Area">
         SELECT * FROM tb_area
-        WHRE area_id=#{oid}
+        WHERE area_id=#{oid}
     </select>
     <insert id="inserArea" useGeneratedKeys="true" keyProperty="areaId" keyColumn="area_id" parameterType="com.imooc.demo.entity.Area">
         INSERT INTO

@@ -28,7 +28,7 @@ public class AreaDaoTest {
 
     @org.junit.Test
     public void testQueryArea1() throws Exception {
-        Area area = areaDao.queryArea(1);
+        Area area = areaDao.queryAreaById(1);
         assertEquals("东苑",area.getAreaName());
     }
 

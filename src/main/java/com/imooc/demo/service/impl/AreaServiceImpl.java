@@ -24,7 +24,7 @@ public class AreaServiceImpl implements AreaService{
 
     @Override
     public Area getAreaById(int oid) {
-        return areaDao.queryArea(oid);
+        return areaDao.queryAreaById(oid);
     }
 
     @Transactional
