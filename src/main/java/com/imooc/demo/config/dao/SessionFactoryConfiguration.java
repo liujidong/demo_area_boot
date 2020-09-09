@@ -10,6 +10,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
+import java.io.IOException;
 
 /**
  * Created by ljd on 2020/9/7.
@@ -32,12 +33,12 @@ public class SessionFactoryConfiguration {
 
 
     @Bean(name="sqlSessionFactory")
-    public SqlSessionFactoryBean createSqlSessionFactoryBean(){
+    public SqlSessionFactoryBean createSqlSessionFactoryBean() throws IOException {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setConfigLocation(new ClassPathResource(mybatisConfigFilePath));
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         String packageSearchPath = PathMatchingResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX + mapperPath;
-        sqlSessionFactoryBean.setMapperLocations(resolver.getResource(packageSearchPath));
+        sqlSessionFactoryBean.setMapperLocations(resolver.getResources(packageSearchPath));
         sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setTypeAliasesPackage(entityPackage);
         return sqlSessionFactoryBean;
