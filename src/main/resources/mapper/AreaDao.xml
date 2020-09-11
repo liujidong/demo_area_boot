@@ -12,7 +12,7 @@
         SELECT * FROM tb_area
         WHERE area_id=#{oid}
     </select>
-    <insert id="inserArea" useGeneratedKeys="true" keyProperty="areaId" keyColumn="area_id" parameterType="com.imooc.demo.entity.Area">
+    <insert id="insertArea" useGeneratedKeys="true" keyProperty="areaId" keyColumn="area_id" parameterType="com.imooc.demo.entity.Area">
         INSERT INTO
         tb_area(area_name,priority,create_time,last_edit_time)
         VALUES(#{areaName},#{priority},#{createTime},#{lastEditTime})
@@ -20,13 +20,13 @@
     <update id="updateArea" parameterType="com.imooc.demo.entity.Area">
         update tb_area
         <set>
-            <if test="areaName!=null">area_name=#{areaName}</if>
+            <if test="areaName!=null">area_name=#{areaName},</if>
             <if test="priority!=null">priority=#{priority}</if>
         </set>
-        where area_id=#{oid}
+        where area_id=#{areaId}
     </update>
     <delete id="deleteArea">
         DELETE FROM tb_area
-        WHERE area_id=#{area_id}
+        WHERE area_id=#{oid}
     </delete>
 </mapper>

@@ -27,7 +27,7 @@ public class AreaServiceImpl implements AreaService{
         return areaDao.queryAreaById(oid);
     }
 
-    @Transactional
+    //@Transactional
     @Override
     public boolean addArea(Area area) {
         if(area.getAreaName() != null && !"".equals(area.getAreaName())){
